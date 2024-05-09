@@ -32,7 +32,7 @@ if suspicious=="Yes":
 else:
     suspicious =0
 arr1.append(suspicious)
-if type_of_payment and transaction_amount and sender_new_balance and sender_old_balance and receiver_old_balance and receiver_new_balance and suspicious or ! suspicious:
+if type_of_payment and transaction_amount and sender_new_balance and sender_old_balance and receiver_old_balance and receiver_new_balance:
         if st.button("Predict"):
             y = np.array([arr1])
             pred = model.predict(y)
