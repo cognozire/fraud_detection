@@ -32,12 +32,10 @@ if suspicious=="Yes":
 else:
     suspicious =0
 arr1.append(suspicious)
-
-y = np.array([arr1])
-pred = model.predict(y)
-results = pred[0]
-
 if st.button("Predict"):
+    y = np.array([arr1])
+    pred = model.predict(y)
+    results = pred[0]
     if results[0]>results[1]:
         st.write(f"This transaction seems to be fair with a probability of {results[0]}")
     elif results[1]>results[0]:
