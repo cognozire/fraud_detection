@@ -42,6 +42,9 @@ if type_of_payment and transaction_amount and sender_new_balance and sender_old_
             elif results[1]>results[0]:
                 st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
 
+else:
+    pass
+
             
 
         
