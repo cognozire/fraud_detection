@@ -32,14 +32,15 @@ if suspicious=="Yes":
 else:
     suspicious =0
 arr1.append(suspicious)
-if st.button("Predict"):
-        y = np.array([arr1])
-        pred = model.predict(y)
-        results = pred[0]
-        if results[0]>results[1]:
-            st.write(f"This transaction seems to be fair with a probability of {results[0]}")
-        elif results[1]>results[0]:
-            st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
+if type_of_payment and transaction_amount and sender_new_balance and sender_old_balance and receiver_old_balance and receiver_new_balance and suspicious:
+        if st.button("Predict"):
+            y = np.array([arr1])
+            pred = model.predict(y)
+            results = pred[0]
+            if results[0]>results[1]:
+                st.write(f"This transaction seems to be fair with a probability of {results[0]}")
+            elif results[1]>results[0]:
+                st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
 
             
 
