@@ -40,8 +40,10 @@ results = pred[0]
 if st.button("Predict"):
     if results[0]>results[1]:
         st.write(f"This transaction seems to be fair with a probability of {results[0]}")
+        arr1 = []
     elif results[1]>results[0]:
         st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
+        arr1 = []
 
 
 
