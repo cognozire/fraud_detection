@@ -32,19 +32,31 @@ if suspicious=="Yes":
 else:
     suspicious =0
 arr1.append(suspicious)
-if type_of_payment and transaction_amount and sender_new_balance and sender_old_balance and receiver_old_balance and receiver_new_balance:
-        if st.button("Predict"):
-            y = np.array([arr1])
-            pred = model.predict(y)
-            results = pred[0]
-            if results[0]>results[1]:
-                st.write(f"This transaction seems to be fair with a probability of {results[0]}")
-            elif results[1]>results[0]:
-                st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
+# if type_of_payment and transaction_amount and sender_new_balance and sender_old_balance and receiver_old_balance and receiver_new_balance:
+#         if st.button("Predict"):
+#             y = np.array([arr1])
+#             pred = model.predict(y)
+#             results = pred[0]
+#             if results[0]>results[1]:
+#                 st.write(f"This transaction seems to be fair with a probability of {results[0]}")
+#             elif results[1]>results[0]:
+#                 st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
 
-else:
-    pass
+# else:
+#     pass
 
+if st.button("Predict"):
+    if str(type_of_payment) != '' and str(transaction_amount) != '' and str(sender_old_balance) != '' and str(sender_new_balance) != '' and str(receiver_old_balance) != '' and str(receiver_new_balance) != '' and str(suspicious) != '':
+        y = np.array([arr1])
+        pred = model.predict(y)
+        results = pred[0]
+        if results[0]>results[1]:
+            st.write(f"This transaction seems to be fair with a probability of {results[0]}")
+        elif results[1]>results[0]:
+            st.write(f"This transaction seems to be fraud with a probability of {results[1]}")
+    else:
+        st.warning('Kindly enter all values.')
+            
             
 
         
