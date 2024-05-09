@@ -2,7 +2,6 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 import numpy as np
 st.title("Financial Fraud Detection App")
-arr1 = []
 model = load_model("fraud.h5")
 type_of_payment = st.selectbox("Type of Payment", ['CASH_OUT', 'PAYMENT', 'CASH_IN', 'TRANSFER', 'DEBIT'])
 if type_of_payment=="CASH_IN":
