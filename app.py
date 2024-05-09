@@ -15,7 +15,7 @@ elif type_of_payment=="PAYMENT":
     type_of_payment=3
 elif type_of_payment=="TRANSFER":
     type_of_payment=4
-# arr1.append(type_of_payment)
+arr1.append(type_of_payment)
 transaction_amount = st.number_input("Transaction Amount", min_value=0)
 arr1.append(transaction_amount)
 sender_old_balance = st.number_input("Sender Old Account Balance", min_value=0)
@@ -31,7 +31,7 @@ if suspicious=="Yes":
     suspicious = 1
 else:
     suspicious =0
-# arr1.append(suspicious)
+arr1.append(suspicious)
 if st.button("Predict"):
     y = np.array([arr1])
     pred = model.predict(y)
