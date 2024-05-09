@@ -30,6 +30,7 @@ if suspicious=="Yes":
     suspicious = 1
 else:
     suspicious =0
+    arr1 = []
 # arr1.append(suspicious)
 if st.button("Predict"):
     arr1[0] = type_of_payment
