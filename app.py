@@ -90,4 +90,3 @@ if st.button("Predict"):
         st.write(f"This transaction seems to be fair with a probability of {results[0]}")
     elif results[1] > results[0]:
         st.write(f"This transaction seems to be fraudulent with a probability of {results[1]}")
-In
