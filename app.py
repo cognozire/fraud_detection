@@ -34,7 +34,7 @@ else:
 arr1.append(suspicious)
 if st.button("Predict"):
     if arr1:
-         y = np.array([arr1])
+        y = np.array([arr1])
         pred = model.predict(y)
         results = pred[0]
         if results[0]>results[1]:
