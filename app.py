@@ -4,6 +4,8 @@ import numpy as np
 import pickle
 st.title("Financial Fraud Detection App")
 model = load_model("fraud.h5")
+with open('scaler.pkl', 'rb') as file:
+    scaler = pickle.load(file)
 arr1 = []
 type_of_payment = st.selectbox("Type of Payment", ['CASH_OUT', 'PAYMENT', 'CASH_IN', 'TRANSFER', 'DEBIT'])
 if type_of_payment=="CASH_IN":
