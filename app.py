@@ -1,9 +1,12 @@
 import streamlit as st
 from tensorflow.keras.models import load_model
 import numpy as np
+import pickle
 st.title("Financial Fraud Detection App")
 model = load_model("fraud.h5")
 arr1 = []
+with open('scaler.pkl', 'rb') as file:
+    scaler = pickle.load(file)
 type_of_payment = st.selectbox("Type of Payment", ['CASH_OUT', 'PAYMENT', 'CASH_IN', 'TRANSFER', 'DEBIT'])
 if type_of_payment=="CASH_IN":
     type_of_payment=0
@@ -48,6 +51,7 @@ arr1.append(suspicious)
 if st.button("Predict"):
     if str(type_of_payment) != '' and str(transaction_amount) != '' and str(sender_old_balance) != '' and str(sender_new_balance) != '' and str(receiver_old_balance) != '' and str(receiver_new_balance) != '' and str(suspicious) != '':
         y = np.array([arr1])
+        y = scaler.transform(y)
         pred = model.predict(y)
         results = pred[0]
         if results[0]>results[1]:
